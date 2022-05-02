@@ -18,15 +18,17 @@ public class MarkdownParse {
             int openParen = markdown.indexOf("(", closeBracket);
             int closeParen = markdown.indexOf(")", openParen);
             String linkStr = markdown.substring(openParen + 1, closeParen);
-            if (linkStr.length() == 0) {
+            
+            if (linkStr.length() == 0 ||
+            markdown.indexOf("!", currentIndex) + 1 == openBracket) {
 
             }
-            else {
+             else {
                 toReturn.add(linkStr);
             }
-            
             currentIndex = closeParen + 1;
-        }
+            }
+            
 
         return toReturn;
     }

@@ -17,7 +17,7 @@ public class MarkdownParseTest {
 
     @Test
     public void testFile() {
-        Path fileName = Path.of("testcase1-jerry.md");
+        Path fileName = Path.of("test-file.md");
         String content = Files.readString(fileName);
         ArrayList<String> actualLinks = MarkdownParse.getLinks(content);
         ArrayList<String> links = new ArrayList<>();
