@@ -19,7 +19,7 @@ public class MarkdownParse {
             int closeParen = markdown.indexOf(")", openParen);
             String linkStr = markdown.substring(openParen + 1, closeParen);
             
-            if (linkStr.length() == 0 ||
+            if (markdown.contains("!") && linkStr.length() == 0 ||
             markdown.indexOf("!", currentIndex) + 1 == openBracket) {
 
             }
