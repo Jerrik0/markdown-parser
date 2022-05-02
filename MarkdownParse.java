@@ -1,18 +1,22 @@
 //https://howtodoinjava.com/java/io/java-read-file-to-string-examples/
 
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList; 
 
 public class MarkdownParse {
     public static ArrayList<String> getLinks(String markdown) {
+
         ArrayList<String> toReturn = new ArrayList<>();
+        String[] symbols = {"(", ")", "[", "]"};
         // find the next [, then find the ], then find the (, then read link upto next )
         int currentIndex = 0;
         while(currentIndex < markdown.length()) {
             int openBracket = markdown.indexOf("[", currentIndex);
             int closeBracket = markdown.indexOf("]", openBracket);
+            
             int openParen = markdown.indexOf("(", closeBracket);
             int closeParen = markdown.indexOf(")", openParen);
             String linkStr = markdown.substring(openParen + 1, closeParen);
